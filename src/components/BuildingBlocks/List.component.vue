@@ -3,7 +3,7 @@
     <ListHeading :list="list" />
     <div>
       <ListItem
-        v-for="(item, index) in list"
+        v-for="(item, index) in [...list].reverse()"
         :key="item.id"
         :item="item"
         :class="[ index % 2 === 0 ? 'bg-gray-100' : 'bg-white' ]"
@@ -14,7 +14,7 @@
 <script>
 import ListHeading from "@/components/BuildingBlocks/ListHeading.component.vue";
 import ListItem from "@/components/BuildingBlocks/ListItem.component.vue";
-import { mapState } from "vuex";
+import { mapMutations, mapState } from "vuex";
 export default {
   name: "ListComponent",
   components: {
@@ -24,12 +24,22 @@ export default {
   computed: {
     ...mapState(["list"]),
   },
+  methods: {
+    ...mapMutations(['setList']),
+  },
+  created() {
+    if ( !localStorage.getItem('list') ) {
+      localStorage.setItem('list', "[]")
+    }
+
+    this.setList(JSON.parse(localStorage.getItem('list')))
+  }
 };
 </script>
 <style lang='scss'>
 .list-cells {
   .list-cell {
-    @apply p-4;
+    @apply flex items-center p-4;
 
     &:nth-child(1) {
       @apply w-1/12;
@@ -41,7 +51,7 @@ export default {
       @apply w-5/12;
     }
     &:nth-child(4) {
-      @apply w-1/12 text-center;
+      @apply w-1/12 justify-center;
     }
   }
 }

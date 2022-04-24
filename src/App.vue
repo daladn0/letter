@@ -20,6 +20,11 @@ export default {
     Header,
     List,
   },
+  methods: {
+    sad() {
+      alert('asdsadsd')
+    }
+  }
 }
 </script>
 
