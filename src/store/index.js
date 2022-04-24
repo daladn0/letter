@@ -12,9 +12,18 @@ function saveList(list) {
 export default createStore({
   state: {
     list: [],
+    amountOptions: [
+      { name: "10", value: 10 },
+      { name: "25", value: 25 },
+      { name: "50", value: 50 },
+      { name: "100", value: 100 },
+      { name: "All", value: "all" },
+    ],
+    amountSelected: 10,
   },
   getters: {},
   mutations: {
+    // List mutations
     setList(state, list) {
       state.list = list;
     },
@@ -40,6 +49,11 @@ export default createStore({
       if (!itemToUpdate) return;
       itemToUpdate[type] = value;
       saveList(state.list);
+    },
+
+    // Selection mutation
+    setAmountSelected(state, value) {
+      state.amountSelected = value;
     },
   },
   actions: {},

@@ -32,6 +32,9 @@ export default {
       input.style.height = "auto";
       input.style.height = input.scrollHeight + "px";
     },
+    focusField() {
+      this.$refs.input.focus()
+    }
   },
   mounted() {
       this.autoResize()
