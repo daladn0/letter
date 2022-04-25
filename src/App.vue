@@ -5,9 +5,12 @@
     <div class="w-full text-center mt-32 px-4" v-if="isMobileDevice" >Unfortunately, this website is not supported by your device yet. Try to open it on a desktop or a laptop.</div>
 
     <!-- table -->
-    <div v-else class="w-10/12 mx-auto my-20 shadow-xl rounded-xl overflow-hidden">
-      <Header/>
-      <List ref="list" />
+    <div v-else class="w-10/12 mx-auto my-20 space-y-8">
+      <div class="shadow-xl rounded-xl overflow-hidden">
+        <Header/>
+        <List ref="list" />
+      </div>
+      <Pagination/>
     </div>
 
   </div>
@@ -17,6 +20,7 @@
 import Header from '@/components/BuildingBlocks/Header.component.vue'
 import List from '@/components/BuildingBlocks/List.component.vue'
 import { mapMutations } from 'vuex'
+import Pagination from './components/BuildingBlocks/Pagination.component.vue'
 
 export default {
   name: 'App',
@@ -28,6 +32,7 @@ export default {
   components: {
     Header,
     List,
+    Pagination,
   },
   methods: {
     ...mapMutations(['addItem']),

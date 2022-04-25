@@ -19,9 +19,23 @@ export default createStore({
       { name: "100", value: 100 },
       { name: "All", value: "all" },
     ],
-    amountSelected: 10,
+    amountSelected: "10",
+    currentPage: 1,
   },
-  getters: {},
+  getters: {
+    sortedList(state) {
+      if (state.amountSelected === "all") return state.list;
+      const startAt = +state.amountSelected * (state.currentPage - 1);
+      return [...state.list]
+        .reverse()
+        .slice(startAt)
+        .filter((item, index) => index < +state.amountSelected)
+        .reverse();
+    },
+    totalPages(state) {
+      return Math.ceil(state.list.length / state.amountSelected);
+    },
+  },
   mutations: {
     // List mutations
     setList(state, list) {
@@ -35,6 +49,7 @@ export default createStore({
         definition: "",
         createdAt: new Date(),
       };
+      state.currentPage = 1;
       state.list.push(newItem);
       saveList(state.list);
     },
@@ -54,6 +69,12 @@ export default createStore({
     // Selection mutation
     setAmountSelected(state, value) {
       state.amountSelected = value;
+      state.currentPage = 1;
+    },
+
+    // Pagination mutation
+    setCurrentPage(state, page) {
+      state.currentPage = page;
     },
   },
   actions: {},

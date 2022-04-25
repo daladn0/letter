@@ -1,20 +1,20 @@
 <template>
   <div class="w-full bg-white">
-    <ListHeading :list="list" />
+    <ListHeading :list="sortedList" />
     <div>
       <ListItem
-        v-for="(item, index) in [...list].reverse()"
+        v-for="(item, index) in [...sortedList].reverse()"
         :key="item.id"
         :item="item"
-        :class="[ index % 2 === 0 ? 'bg-gray-100' : 'bg-white' ]"
-    />
+        :class="[index % 2 === 0 ? 'bg-gray-100' : 'bg-white']"
+      />
     </div>
   </div>
 </template>
 <script>
 import ListHeading from "@/components/BuildingBlocks/ListHeading.component.vue";
 import ListItem from "@/components/BuildingBlocks/ListItem.component.vue";
-import { mapMutations, mapState } from "vuex";
+import { mapGetters, mapMutations, mapState } from "vuex";
 export default {
   name: "ListComponent",
   components: {
@@ -22,17 +22,23 @@ export default {
     ListItem,
   },
   computed: {
-    ...mapState(["list"]),
+    ...mapState(['currentPage']),
+    ...mapGetters(['sortedList']),
   },
   methods: {
-    ...mapMutations(['setList']),
+    ...mapMutations(["setList", "setCurrentPage"]),
   },
   created() {
-    if ( !localStorage.getItem('list') ) {
-      localStorage.setItem('list', "[]")
+    if (!localStorage.getItem("list")) {
+      localStorage.setItem("list", "[]");
     }
 
-    this.setList(JSON.parse(localStorage.getItem('list')))
+    this.setList(JSON.parse(localStorage.getItem("list")));
+  },
+  updated() {
+    if ( this.sortedList.length === 0 && this.currentPage > 1 ) {
+      this.setCurrentPage(this.currentPage - 1)
+    }
   }
 };
 </script>
