@@ -50,15 +50,29 @@
     <!-- title -->
     <h1 class="absolute left-1/2 transform -translate-x-1/2">Letter App</h1>
 
-    <div class="flex items-center space-x-2">
+    <div class="flex items-center space-x-4">
       <!-- selections -->
-      <div class="flex items-center space-x-2">
-        <p class="text-sm text-white font-medium">Amout:</p>
-        <Selection @selected='value => setAmountSelected(value)' :options="amountOptions" :value="amountSelected" />
+      <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-2">
+          <p class="text-sm text-white font-medium">Amout:</p>
+          <Selection
+            @selected="(value) => setAmountSelected(value)"
+            :options="amountOptions"
+            :value="amountSelected"
+          />
+        </div>
+        <div class="flex items-center space-x-2">
+          <p class="text-sm text-white font-medium">Show:</p>
+          <Selection
+            @selected="(value) => setShowSelected(value)"
+            :options="showOptions"
+            :value="showSelected"
+          />
+        </div>
       </div>
 
       <!-- add button -->
-      <Btn @clicked="addItem">
+      <Btn @clicked="add">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-6 w-6"
@@ -81,6 +95,7 @@
 import Selection from "@/components/UI/Selection.component.vue";
 import Btn from "@/components/UI/Btn.component.vue";
 import { mapMutations, mapState } from "vuex";
+import { nextTick } from "@vue/runtime-core";
 export default {
   name: "HeaderComponent",
   components: {
@@ -88,10 +103,22 @@ export default {
     Selection,
   },
   computed: {
-    ...mapState(["amountOptions", "amountSelected"]),
+    ...mapState([
+      "amountOptions",
+      "showOptions",
+      "amountSelected",
+      "showSelected",
+    ]),
   },
   methods: {
-    ...mapMutations(["addItem", 'setAmountSelected']),
+    ...mapMutations(["addItem", "setAmountSelected", "setShowSelected"]),
+    add() {
+      this.addItem();
+
+      nextTick(() => {
+        document.querySelector(".list-cells textarea").focus()
+      });
+    },
   },
 };
 </script>

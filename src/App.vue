@@ -8,7 +8,7 @@
     <div v-else class="w-10/12 mx-auto my-20 space-y-8">
       <div class="shadow-xl rounded-xl overflow-hidden">
         <Header/>
-        <List ref="list" />
+        <List/>
       </div>
       <Pagination/>
     </div>
@@ -37,16 +37,10 @@ export default {
   methods: {
     ...mapMutations(['addItem']),
     checkWindowWidth() {
-      this.isMobileDevice = window.innerWidth < 991 ? true : false
+      this.isMobileDevice = window.innerWidth < 1200 ? true : false
     }
   },
   mounted() {
-    document.addEventListener('keydown', e => {
-      if(e.ctrlKey && e.key === 'm') {
-        this.addItem()
-      }
-    })
-
     this.checkWindowWidth()
     window.addEventListener('resize', () => {
       this.checkWindowWidth()

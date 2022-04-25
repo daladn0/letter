@@ -19,7 +19,13 @@ export default createStore({
       { name: "100", value: 100 },
       { name: "All", value: "all" },
     ],
+    showOptions: [
+      { name: "All", value: "all" },
+      { name: "Words", value: "words" },
+      { name: "Definitions", value: "definitions" },
+    ],
     amountSelected: "10",
+    showSelected: "all",
     currentPage: 1,
   },
   getters: {
@@ -69,6 +75,11 @@ export default createStore({
     // Selection mutation
     setAmountSelected(state, value) {
       state.amountSelected = value;
+      state.currentPage = 1;
+    },
+
+    setShowSelected(state, value) {
+      state.showSelected = value;
       state.currentPage = 1;
     },
 

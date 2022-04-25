@@ -1,12 +1,12 @@
 <template>
   <div class="w-full bg-white">
     <ListHeading :list="sortedList" />
-    <div>
+    <div class='bg-gray-300'>
       <ListItem
         v-for="(item, index) in [...sortedList].reverse()"
         :key="item.id"
         :item="item"
-        :class="[index % 2 === 0 ? 'bg-gray-100' : 'bg-white']"
+        :bg="[index % 2 === 0 ? 'bg-gray-100' : 'bg-white']"
       />
     </div>
   </div>
