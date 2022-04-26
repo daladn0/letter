@@ -72,7 +72,7 @@
       </div>
 
       <!-- add button -->
-      <Btn @clicked="add">
+      <Btn @clicked="$emit('add-item')">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-6 w-6"
@@ -95,7 +95,6 @@
 import Selection from "@/components/UI/Selection.component.vue";
 import Btn from "@/components/UI/Btn.component.vue";
 import { mapMutations, mapState } from "vuex";
-import { nextTick } from "@vue/runtime-core";
 export default {
   name: "HeaderComponent",
   components: {
@@ -111,14 +110,7 @@ export default {
     ]),
   },
   methods: {
-    ...mapMutations(["addItem", "setAmountSelected", "setShowSelected"]),
-    add() {
-      this.addItem();
-
-      nextTick(() => {
-        document.querySelector(".list-cells textarea").focus()
-      });
-    },
+    ...mapMutations(["setAmountSelected", "setShowSelected"]),
   },
 };
 </script>

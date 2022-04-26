@@ -3,6 +3,7 @@
       <div class="list-cell">{{ item.id }}</div>
       <div class="list-cell">
         <Field
+          ref="wordInput"
           placeholder="New word"
           :class="{
             'blured': blur && showSelected === 'definitions'
