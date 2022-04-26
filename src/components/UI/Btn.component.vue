@@ -10,6 +10,6 @@ export default {
 </script>
 <style scoped>
 .btn {
-    @apply border-2 border-white bg-white text-yellow-500 rounded-md transition hover:bg-transparent hover:text-white;
+    @apply border-2 border-white bg-white text-orange-400 rounded-md transition hover:bg-transparent hover:text-white;
 }
 </style>

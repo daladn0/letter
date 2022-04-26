@@ -42,7 +42,7 @@ export default {
 
   .back {
     transform: rotateX(180deg);
-    background: rgb(255, 233, 111);
+    background: rgb(245, 178, 123);
   }
 
   .back,

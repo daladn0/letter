@@ -4,7 +4,7 @@
       <button
         class="p-1 cursor-pointer"
         :class="[
-          currentPage === page ? 'text-black border-b-2 border-yellow-500' : 'text-gray-500 border-b-2 border-transparent',
+          currentPage === page ? 'text-black border-b-2 border-orange-400' : 'text-gray-500 border-b-2 border-transparent',
         ]"
         @click="setCurrentPage(page)"
       >

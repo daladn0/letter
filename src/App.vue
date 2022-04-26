@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
     <!-- Message for mobile users -->
     <div class="w-full text-center mt-32 px-4" v-if="isMobileDevice">
       Unfortunately, this website is not supported by your device yet. Try to
@@ -24,12 +24,12 @@
             justify-center
             w-10
             h-10
-            bg-yellow-500
+            bg-orange-400
             text-white text-xl
             rounded-full
             font-bold
             transition
-            hover:bg-yellow-600
+            hover:bg-orange-500
           "
           @click="showModal = true"
         >
@@ -41,31 +41,47 @@
         <div class="text-gray-800">
           <h2 class='font-semibold text-3xl text-center mb-2.5'>Letter App</h2>
 
-          <div class='w-2/3 h-px bg-gray-600 mx-auto mt-4 mb-10'></div>
-
           <div class="space-y-2.5">
-            <p class="text-sm"><span class="font-medium underline">Letter App</span> is an application for language learners. Here you can write down new words, phrases, on the fences etc.</p>
-            <p class="text-sm">Below you can find a little instruction on the app.</p>
+            <p><span class="font-medium">Letter App</span> is an application for language learners. Here you can write down new words, phrases, on the fences etc.</p>
+            <p>Below you can find a little instruction on the app.</p>
           </div>
 
           <!-- <h2 class="block text-gray-800 text-2xl text-center my-10 font-medium">Instruction:</h2> -->
 
-          <div class="space-y-12 mt-16">
+          <div class="space-y-8 mt-12">
             <div class="space-y-2.5">
-              <h3 class='text-gray-800 text-2xl font-bold'>'Show' selection</h3>
-              <p class="text-sm">You can easily repeat your marks using built-in "Show" selection:</p>
+              <h3 class='text-gray-800 text-xl font-bold'>'Show' selection</h3>
+              <p>You can easily repeat your marks using built-in "Show" selection:</p>
               <img class="w-full" src="@/assets/images/placeholder.png" alt="">
             </div>
 
             <div class="space-y-2.5">
-              <h3 class='text-gray-800 text-2xl font-bold'>'Amount' selection</h3>
-              <p class="text-sm">You're able to choose amount of items to show using built-in "Amount" selection.</p>
+              <h3 class='text-gray-800 text-xl font-bold'>'Amount' selection</h3>
+              <p>You're able to choose amount of items to show using built-in "Amount" selection.</p>
               <img class="w-full" src="@/assets/images/placeholder.png" alt="">
             </div>
 
             <div class="space-y-2.5">
-              <h3 class='text-gray-800 text-2xl font-bold'>Item Actions</h3>
-              <p class="text-sm">Each item can be created, edited or removed depending on your wishes.</p>
+              <h3 class='text-gray-800 text-xl font-bold'>Item Actions</h3>
+              <p>Each item can be created, edited or removed depending on your wishes.</p>
+              <img class="w-full" src="@/assets/images/items.png" alt="">
+            </div>
+
+            <div class="space-y-2.5">
+              <h3 class='text-gray-800 text-xl font-bold'>'Show' selection</h3>
+              <p>You can easily repeat your marks using built-in "Show" selection:</p>
+              <img class="w-full" src="@/assets/images/placeholder.png" alt="">
+            </div>
+
+            <div class="space-y-2.5">
+              <h3 class='text-gray-800 text-xl font-bold'>'Amount' selection</h3>
+              <p>You're able to choose amount of items to show using built-in "Amount" selection.</p>
+              <img class="w-full" src="@/assets/images/placeholder.png" alt="">
+            </div>
+
+            <div class="space-y-2.5">
+              <h3 class='text-gray-800 text-xl font-bold'>Item Actions</h3>
+              <p>Each item can be created, edited or removed depending on your wishes.</p>
               <img class="w-full" src="@/assets/images/items.png" alt="">
             </div>
           </div>

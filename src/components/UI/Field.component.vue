@@ -11,7 +11,7 @@
       rounded
       bg-transparent
       resize-none
-      focus:outline-yellow-500
+      focus:outline-orange-400
     "
   />
 </template>

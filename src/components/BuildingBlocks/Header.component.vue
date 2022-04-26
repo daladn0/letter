@@ -2,8 +2,8 @@
   <div
     class="
       w-full
-      bg-yellow-500
-      p-2
+      bg-orange-400
+      p-3
       rounded-t-xl
       flex
       items-center
@@ -16,7 +16,7 @@
     "
   >
     <!-- import/export buttons -->
-    <div class="flex items-center space-x-2">
+    <div class="flex items-center space-x-3">
       <Btn class="relative">
         <svg
           xmlns="http://www.w3.org/2000/svg"
