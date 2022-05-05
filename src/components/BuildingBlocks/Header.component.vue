@@ -12,7 +12,6 @@
       text-white
       font-semibold
       text-lg
-      relative
     "
   >
     <!-- import/export buttons -->

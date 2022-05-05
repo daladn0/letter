@@ -8,8 +8,8 @@
 
     <div v-else>
       <!-- table -->
-      <div class="w-10/12 mx-auto my-20 space-y-8">
-        <div class="shadow-xl rounded-xl overflow-hidden">
+      <div class="w-9/12 mx-auto my-20 space-y-8">
+        <div class="shadow-xl rounded-xl">
           <Header @add-item="add" />
           <List />
         </div>
@@ -102,6 +102,7 @@ import List from "@/components/BuildingBlocks/List.component.vue";
 import { mapMutations } from "vuex";
 import Pagination from "./components/BuildingBlocks/Pagination.component.vue";
 import Modal from "@/components/UI/Modal.component.vue";
+import { nextTick } from '@vue/runtime-core';
 
 export default {
   name: "App",
@@ -124,6 +125,9 @@ export default {
     },
     add() {
       this.addItem()
+      nextTick(() => {
+        document.querySelector('textarea').focus()
+      })
     }
   },
   mounted() {
